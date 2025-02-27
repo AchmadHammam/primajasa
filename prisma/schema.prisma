@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Checklist {
+  id         Int      @id @unique @default(autoincrement())
+  userId     Int
+  title      String
+  done       Boolean  @default(false)
+  created_at DateTime @default(now())
+  created_by String
+  updated_at DateTime @default(now()) @updatedAt
+  updated_by String
+  user       user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items      items[]
+}
+
+model items {
+  id          Int       @id @unique @default(autoincrement())
+  item        String
+  done        Boolean   @default(false)
+  checkListId Int
+  created_at  DateTime  @default(now())
+  created_by  String
+  updated_at  DateTime  @default(now()) @updatedAt
+  updated_by  String
+  Checklist   Checklist @relation(fields: [checkListId], references: [id], onDelete: Cascade)
+}
+
+model user {
+  id         Int         @id @unique @default(autoincrement())
+  username   String
+  password   String
+  email      String
+  nama       String
+  noHandpone String
+  created_at DateTime    @default(now())
+  created_by String
+  updated_at DateTime    @default(now()) @updatedAt
+  updated_by String
+  Checklist  Checklist[]
+  OneSignal  OneSignal[]
+}
+
+model OneSignal {
+  id          Int      @id @unique @default(autoincrement())
+  userId      Int      @unique
+  oneSignalId String
+  created_at  DateTime @default(now())
+  created_by  String
+  updated_at  DateTime @default(now()) @updatedAt
+  updated_by  String
+  user        user     @relation(fields: [userId], references: [id])
+}
