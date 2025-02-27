@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "build": "tsc",
     "start": "nodemon  --files --watch './**/*.ts' --exec ts-node-esm ./src/index.ts"
   },
   "author": "",

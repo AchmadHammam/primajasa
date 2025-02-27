@@ -26,12 +26,6 @@ app.get("/checklist/:checkListId/item", Middleware, GetItemList);
 app.put("/checklist/:checkListId/item/:itemId", Middleware, UpdateItemList);
 app.delete("/checklist/:checkListId/item/:itemId", Middleware, DeleteItemList);
 
-app.get("/tes", Middleware, async (req: Request, res: Response) => {
-  const session = await GetServerSession(req);
-  res.json(session?.id);
-  return;
-});
-
 app.listen(port, "0.0.0.0", () => {
   console.log(`Example app listening on port ${port}`);
 });

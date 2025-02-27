@@ -1,12 +1,7 @@
 {
   "version": 2,
-  "builds":[{"src":"./src/index.ts","use":"@vercel/node"}],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/src/index.ts"
-    }
-  ],  
+  "builds": [{ "src": "src/**/*.ts", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/src/index.ts" }],
   "env": {
     "DATABASE_URL": "postgresql://postgres.hvwllalmfffnnxbpwvwj:B4ngDeam!!@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres",
     "SECRET_KEY": "J7hUiHvNfZP7Kq3fyg7KBHgCBIIfew8A9NTGH4Nxv6cXN6r9KsFIY6NYV9U5qPZQwEVyahMAVxNJOwSGaE2PHseAuD5t8Xdf",
