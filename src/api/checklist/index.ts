@@ -70,10 +70,14 @@ export async function GetCheckList(request: Request, response: Response) {
       updated_at: true,
       items: {
         select: {
-          done: true,
+          id: true,
           item: true,
+          done: true,
+          checkListId: true,
+          created_by: true,
           created_at: true,
           updated_at: true,
+          updated_by: true,
         },
         orderBy: {
           updated_at: "desc",
