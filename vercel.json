@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds":[{"src":"./src/index.ts","use":"@vercel-node"}],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/src/index.ts"
+    }
+  ],  
+  "env": {
+    "DATABASE_URL": "postgresql://postgres.hvwllalmfffnnxbpwvwj:B4ngDeam!!@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres",
+    "SECRET_KEY": "J7hUiHvNfZP7Kq3fyg7KBHgCBIIfew8A9NTGH4Nxv6cXN6r9KsFIY6NYV9U5qPZQwEVyahMAVxNJOwSGaE2PHseAuD5t8Xdf",
+    "ONE_SIGNAL_APPID": "22dcfe24-6775-4e53-a65e-bbe63338bc4c",
+    "ONE_SIGNAL_RESTKEY": "os_v2_app_elop4jdhovhfhjs6xptdgof4jqwf7jk2q3luy7nnd5zgoigb4fxca62givanulcrgzvrzx4nzhnw7damzrsi3yup5j3gzcwq3lsparq"
+  }
+}
