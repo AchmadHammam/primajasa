@@ -7,6 +7,7 @@ import { registerValidation } from "@/lib/schema/register";
 export async function Register(re: Request, res: Response) {
   const body = await re.body;
   const validaton = registerValidation.safeParse(body);
+
   if (validaton.error) {
     res.send(validaton.error).status(400);
     return;

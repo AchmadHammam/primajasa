@@ -27,7 +27,7 @@ export async function Login(request: Request, response: Response) {
       email: true,
     },
   });
-
+  
   if (!user) {
     response.sendStatus(HttpStatusCode.Unauthorized);
     return;
